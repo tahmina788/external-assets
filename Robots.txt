@@ -1,0 +1,9 @@
+user-agent: *
+Disallow: /banner/
+Disallow: /banner/*
+Disallow: /privatefile.html
+Allow: /pages/
+Allow: /images/
+
+user-agent: Googlebot
+Disallow: /banner/
