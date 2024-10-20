@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="ad.size" content="width=1000,height=600">
+    <title>ACI Pure Salt - 100X600</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="assets/main.css"/>
+
+    <style>
+        .falling-salt {
+            z-index: 1;
+            visibility: hidden;
+        }
+
+        .falling-salt img {
+            opacity: 0.9;
+        }
+
+        @keyframes revealSalt {
+            0% {
+                clip-path: inset(0 0 100% 0);
+            }
+            100% {
+                clip-path: inset(0 0 0 0);
+            }
+        }
+
+        .salt-reveal {
+            animation: revealSalt 2s ease-out forwards;
+        }
+
+
+        .mnemonic2 {
+            position: fixed;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: left 0.1s ease-out, top 0.1s ease-out;
+            /* Prevent default touch behaviors */
+            touch-action: none;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
+            left: 50%;
+            top: 50%;
+        }
+
+        @media (max-width: 700px) {
+            .mnemonic2 {
+                width: 110px;  /* Match your mobile size */
+            }
+        }
+    </style>
+
+</head>
+<body>
+
+
+
+<div id="myModal" class="modal">
+    <div class="full-page bg-dark">
+        <span class="close">&times;</span>
+
+        <div class="ad-wrapper">
+            <img src="img/pot.png" alt="Pot" class="pot animate__animated animate__zoomIn animate__delay-1s"/>
+            <div class="falling-salt" id="falling-salt">
+                <img src="img/salt.png" alt="Salt" id="salt" class=""/>
+            </div>
+          <!--  <div class="content">
+                <img src="img/animation.gif" alt="Pot"
+                     class="iodine-img animate__animated animate__zoomIn animate__delay-5s"/>
+            </div>-->
+        </div>
+
+        <div class="footer-content">
+            <div class="footer-inner">
+                <img src="img/packet.png" alt="Salt Packet"
+                     class="packet animate__animated animate__zoomIn animate__delay-2s"/>
+                <img src="img/medha.png" alt="Salt Packet"
+                     class="medha animate__animated animate__zoomIn animate__delay-2s"/>
+                <!-- <img src="img/1.png" alt="Text" class="text animate__animated animate__zoomIn animate__delay-3s"
+                      id="iodine_text"/>-->
+                <p class="pure-text animate__animated animate__zoomIn animate__delay-3s">সম্পূর্ণ বিশুদ্ধ ও সঠিকমাত্রায় আয়োডিনযুক্ত লবণ</p>
+                <img src="img/11.png" alt="Text" class="text animate__animated animate__zoomIn animate__delay-3s"
+                     id="iodine_text2" style="visibility: hidden"/>
+                <!--  <img src="img/mnemonic.png" alt="Mnemonic" class="mnemonic animate__animated animate__zoomIn animate__delay-4s" id="logo"/>-->
+
+                <img src="img/mnemonic.png" alt="Mnemonic"
+                     class="mnemonic2 animate__animated animate__zoomIn animate__delay-5s" id="mnemonic2"/>
+                <img src="img/animation.gif" alt="Salt Packet"
+                     class="animation_iodine animate__animated animate__zoomIn animate__delay-3s"/>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const clickTag1 = "https://www.facebook.com/watch/?v=512981401619337&ref=sharing";
+    const modal = document.getElementById("myModal");
+    const closeModalBtn = document.getElementsByClassName("close")[0];
+    const salt = document.getElementById('falling-salt');
+    const mnemonic2 = document.getElementById('mnemonic2');
+
+    // Show modal immediately
+    modal.style.display = "block";
+
+    // Show salt after delay
+   /* setTimeout(() => {
+        salt.style.visibility = 'visible';
+    }, 2000);*/
+
+    // Close modal handlers
+    closeModalBtn.onclick = () => modal.style.display = "none";
+    window.onclick = (event) => {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    };
+    //hide modal after 10 seconds
+    setTimeout(() => {
+        modal.style.display = "none";
+    }, 10000);
+
+    // Mouse movement effect
+     document.addEventListener('mousemove', (e) => {
+         requestAnimationFrame(() => {
+             const mnemonic = document.querySelector('.mnemonic');
+             mnemonic2.style.visibility = 'visible';
+             mnemonic2.style.left = e.pageX + 'px';
+             mnemonic2.style.top = e.pageY + 'px';
+         });
+     });
+
+    // Click handler
+    mnemonic2.addEventListener('click', () => window.open(clickTag1));
+
+    setTimeout(() => {
+        const salt = document.getElementById('falling-salt');
+        const saltImg = document.getElementById('salt');
+        salt.style.visibility = 'visible';
+        saltImg.classList.add('salt-reveal');
+    }, 1000);
+</script>
+
+<script>
+    // Function to update the position of mnemonic2 element
+    function updatePosition(x, y) {
+        mnemonic2.style.left = `${x}px`;
+        mnemonic2.style.top = `${y}px`;
+    }
+
+    // Ensure mnemonic2 is always visible
+    mnemonic2.style.visibility = 'visible';
+
+    // Mouse movement effect
+    document.addEventListener('mousemove', (e) => {
+        requestAnimationFrame(() => {
+            updatePosition(e.pageX, e.pageY);
+        });
+    });
+
+    // Touch movement effect for mobile
+    document.addEventListener('touchmove', (e) => {
+        requestAnimationFrame(() => {
+            const touch = e.touches[0];
+            updatePosition(touch.pageX, touch.pageY);
+        });
+    });
+
+    // Click or tap handler for mnemonic2
+    mnemonic2.addEventListener('click', () => window.open(clickTag1));
+
+    // Show salt after a delay
+    setTimeout(() => {
+        const salt = document.getElementById('falling-salt');
+        const saltImg = document.getElementById('salt');
+        salt.style.visibility = 'visible';
+        saltImg.classList.add('salt-reveal');
+    }, 1000);
+
+
+</script>
+
+</body>
+</html>
+
+<!--
+2B3090-->

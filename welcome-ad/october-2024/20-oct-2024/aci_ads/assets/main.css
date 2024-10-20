@@ -1,0 +1,475 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: #f1f1f1;
+    overflow: hidden;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.full-page {
+    height: 100vh;
+}
+
+.bg-dark {
+    background: rgba(0, 0, 0, 0.5) !important;
+}
+
+.close {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10000;
+}
+
+.close:hover {
+    color: #fff;
+}
+
+.ad-wrapper {
+    width: 1200px;
+    height: 100vh;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.footer-content {
+    width: 100%;
+    height: 150px;
+    background: #2B3090;
+    bottom: 0;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-inner {
+    width: 1200px;
+    height: 100px;
+    position: relative;
+    overflow: visible;
+}
+
+.pot {
+    position: absolute;
+    top: 50px;
+    left: 13%;
+    width: 130px;
+    z-index: 2;
+}
+
+.falling-salt {
+    position: absolute;
+    top: 110px;
+    left: 60px;
+    z-index: 1;
+}
+
+.falling-salt img {
+    width: 275px;
+    opacity: 0.9;
+    /*animation: fallingSalt 2.5s linear;*/
+}
+
+@keyframes fallingSalt {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.9;
+    }
+    100% {
+        transform: translateY(500px) rotate(20deg);
+        opacity: 0;
+    }
+}
+
+.packet {
+    width: 470px;
+    position: absolute;
+    bottom: -50px;
+    left: -45px;
+}
+
+.medha {
+    width: 245px;
+    bottom: -15px;
+    left: 57px;
+    position: absolute;
+}
+
+.text {
+    position: absolute;
+    bottom: -232px;
+    left: 285px;
+    width: 472px;
+}
+
+.mnemonic, .mnemonic2 {
+    position: absolute;
+    width: 175px !important;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: left 0.3s ease-out, top 0.3s ease-out;
+    cursor: pointer;
+    bottom: -215px;
+    right: 70px;
+}
+
+.mnemonic2 {
+    position: fixed;
+}
+
+.content {
+    position: absolute;
+    top: 145px;
+    right: 10%;
+}
+
+.iodine-img {
+    width: 435px;
+    right: 50px;
+    top: -98px;
+    position: absolute;
+}
+
+.iodine {
+    right: 0;
+    position: absolute;
+    width: 230px;
+    text-align: center;
+    bottom: -18px;
+}
+
+#iodine_text {
+    visibility: visible !important;
+}
+
+#iodine_text2 {
+    visibility: hidden !important;
+}
+
+.pure-text{
+    width: 720px;
+    color: #fff;
+    font-weight: 900;
+    position: absolute;
+    left: 32%;
+    font-size: 28px;
+    top: 40px;
+}
+
+
+.animation_iodine {
+    top: -35px;
+    position: absolute;
+    right: 0px;
+    width: 200px;
+}
+/*  Screensize less than 720 */
+@media (max-width: 1168px) {
+
+    #iodine_text {
+        visibility: visible !important;
+    }
+
+    #iodine_text2 {
+        visibility: hidden !important;
+    }
+
+    .footer-inner {
+        width: 720px;
+        height: 100px;
+        position: relative; /* Relative for children to position themselves */
+        overflow: visible; /* Allow content to overflow */
+    }
+
+    .packet {
+        width: 391px;
+        height: auto;
+        position: absolute;
+        bottom: -50px;
+        left: -36px;
+    }
+
+    .text {
+        position: absolute;
+        bottom: -150px;
+        left: 291px;
+        width: 303px;
+    }
+
+    .mnemonic {
+        position: absolute;
+        width: 154px;
+        z-index: 9999;
+        transform: translate(-50%, -50%);
+        transition: left 0.3s ease-out, top 0.3s ease-out;
+        cursor: pointer;
+        pointer-events: auto;
+        bottom: -45px;
+        right: -83px;
+    }
+
+    .mnemonic2 {
+        position: fixed;
+        width: 280px;
+        z-index: 9999;
+        transform: translate(-50%, -50%);
+        transition: left 0.3s ease-out, top 0.3s ease-out;
+        cursor: pointer;
+        pointer-events: auto;
+        bottom: -215px;
+        right: 70px;
+        visibility: hidden;
+    }
+
+    .iodine {
+        right: 0;
+        position: absolute;
+        width: 133px;
+        text-align: center;
+        bottom: -9px;
+    }
+
+    .iodine-img {
+        width: 320px;
+        right: 340px;
+        top: -10px;
+        position: absolute;
+    }
+
+    .medha {
+        width: 200px;
+        bottom: -15px;
+        left: 57px;
+        position: absolute;
+    }
+
+    #falling-salt {
+        visibility: hidden; /* Initially hide the salt image */
+    }
+    .pure-text {
+        width: 260px;
+        color: #fff;
+        font-weight: 900;
+        position: absolute;
+        left: 310px;
+        font-size: 17px;
+        top: 44px;
+        text-align: center;
+    }
+}
+
+/*Mobile css*/
+@media (max-width: 700px) {
+    #iodine_text {
+        visibility: hidden !important;
+    }
+
+    #iodine_text2 {
+        visibility: visible !important;
+        position: absolute;
+        top: 52px;
+        left: 170px;
+        width: 145px;
+    }
+
+    .packet {
+        width: 250px;
+        height: auto;
+        position: absolute;
+        bottom: -35px;
+        left: -36px;
+    }
+
+    .medha {
+        width: 140px;
+        bottom: -15px;
+        left: 15px;
+        position: absolute;
+    }
+
+    .text {
+        position: absolute;
+        bottom: -77px;
+        left: 140px;
+        width: 197px;
+    }
+
+    .iodine {
+        right: 0;
+        position: absolute;
+        width: 120px;
+        text-align: center;
+        bottom: -10px;
+    }
+
+    .mnemonic {
+        position: absolute;
+        width: 144px;
+        z-index: 9999;
+        transform: translate(-50%, -50%);
+        transition: left 0.3s ease-out, top 0.3s ease-out;
+        cursor: pointer;
+        pointer-events: auto;
+        bottom: -45px;
+        right: -85px;
+    }
+
+    .pot {
+        position: absolute;
+        top: 50px;
+        left: 60px;
+        width: 130px;
+        z-index: 2;
+    }
+
+    .falling-salt {
+        position: absolute;
+        top: 110px;
+        left: -75px;
+        z-index: 1;
+        visibility: hidden;
+    }
+
+    .falling-salt img {
+        width: 350px;
+        opacity: 0.9;
+
+    }
+
+    .footer-content {
+        width: 100%;
+        height: 135px;
+        background: #2B3090;
+        bottom: 0;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 700px) {
+    .packet {
+        width: 220px;
+        height: auto;
+        position: absolute;
+        bottom: -35px;
+        left: -36px;
+    }
+
+    .medha {
+        width: 118px;
+        bottom: -15px;
+        left: 15px;
+        position: absolute;
+    }
+
+    #iodine_text2 {
+        visibility: visible !important;
+        position: absolute;
+        top: 63px;
+        left: 145px;
+        width: 120px;
+    }
+
+    .iodine {
+        right: 7px;
+        position: absolute;
+        width: 95px;
+        text-align: center;
+        bottom: -13px;
+    }
+
+    .mnemonic {
+        position: absolute;
+        width: 144px;
+        z-index: 9999;
+        transform: translate(-50%, -50%);
+        transition: left 0.3s ease-out, top 0.3s ease-out;
+        cursor: pointer;
+        pointer-events: auto;
+        bottom: -53px;
+        right: -85px;
+    }
+
+    .pot {
+        position: absolute;
+        top: 50px;
+        left: 45px;
+        width: 130px;
+        z-index: 2;
+    }
+
+    .falling-salt {
+        position: absolute;
+        top: 110px;
+        left: -86px;
+        z-index: 1;
+    }
+
+    .mnemonic {
+        position: absolute;
+        width: 110px;
+        z-index: 9999;
+        transform: translate(-50%, -50%);
+        transition: left 0.3s ease-out, top 0.3s ease-out;
+        cursor: pointer;
+        pointer-events: auto;
+        bottom: -30px;
+        right: -52px;
+    }
+
+    .iodine-img {
+        width: 250px;
+        right: 725px;
+        top: 0px;
+        position: absolute;
+        /* left: 43px; */
+    }
+    .animation_iodine {
+        top: 12px;
+        position: absolute;
+        right: -5px;
+        width: 135px;
+    }
+    .pure-text {
+        visibility: hidden;
+    }
+    .falling-salt img {
+        width: 350px;
+        opacity: 0.9;
+        height: 65vh !important;
+    }
+/*    .falling-salt img {
+        width: 340px;
+        opacity: 0.9;
+        height: 590px;
+    }*/
+}
+

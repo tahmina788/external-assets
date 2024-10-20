@@ -1,0 +1,130 @@
+:root {
+    --primary-color: #2D6CFE;
+    --secondary-color: #22b94f;
+    --tertiary-color: #2D6CFE;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+    padding: 0;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-white {
+    color: #fff;
+}
+
+.default-img {
+    width: 100%;
+}
+
+.width-50 {
+    width: 50%;
+}
+.width-40 {
+    width: 40%;
+}
+
+.width-75 {
+    width: 75%;
+}
+
+.width-35 {
+    width: 35%;
+}
+
+.row {
+    width: 100%;
+    height: auto;
+}
+
+.col-2 {
+    width: 50% !important;
+    float: left;
+}
+
+.col-3 {
+    width: 33%;
+    float: left;
+}
+
+.col-4 {
+    width: 25%;
+    float: left;
+}
+
+.col-5 {
+    width: 20%;
+    float: left;
+}
+
+.col-6 {
+    width: 16%;
+    float: left;
+}
+
+.first {
+    float: left;
+}
+
+.last {
+    float: right;
+}
+
+.pb-5 {
+    padding-bottom: 5px;
+}
+
+.pt-5 {
+    padding-top: 5px;
+}
+
+.mb-5 {
+    margin-bottom: 5px;
+}
+
+.mt-5 {
+    margin-top: 5px;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: var(--secondary-color);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: var(--secondary-color);
+}
+
+.btn:hover {
+    background-color: var(--secondary-color);
+}
