@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iftar Countdown</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f8f9fa;
+        }
+
+        #countdown-container {
+            width: 970px;
+            height: 90px;
+            background: url('iftar_bg_980x90.png') no-repeat center center;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Center the text */
+            font-size: 36px;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            border: 1px solid #0000ff;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            #countdown-container {
+                width: 320px;
+                height: 150px;
+                background: url('mobile-bg.jpg') no-repeat center center/cover;
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>ইফতার কাউন্টডাউন</h1>
+    <div id="countdown-container"></div>
+
+    <script>
+        function toBanglaDigits(number) {
+            const banglaNumbers = { '0': '০', '1': '১', '2': '২', '3': '৩', '4': '৪', '5': '৫', '6': '৬', '7': '৭', '8': '৮', '9': '৯' };
+            return number.toString().split('').map(digit => banglaNumbers[digit] || digit).join('');
+        }
+
+        function updateCountdown() {
+            // Set Iftar time today at 6:07 PM
+            const now = new Date();
+            const iftarTime = new Date();
+            iftarTime.setHours(18, 7, 0, 0); // 6:07 PM
+
+            // If it's past Iftar, set it for tomorrow
+            if (now > iftarTime) {
+                iftarTime.setDate(iftarTime.getDate() + 1);
+            }
+
+            // Calculate the remaining time
+            const timeLeft = iftarTime - now;
+			console.log(timeLeft);
+            const hours = Math.floor(timeLeft / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+            // Convert numbers to Bangla with proper spacing
+            const banglaCountdown = 
+                `&nbsp&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp${toBanglaDigits(hours)} ` +
+                `&nbsp;&nbsp&nbsp;&nbsp;&nbsp${toBanglaDigits(minutes)} ` +
+                `&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp&nbsp;${toBanglaDigits(seconds)} `;
+
+            // Display countdown
+            document.getElementById("countdown-container").innerHTML = banglaCountdown;
+
+            // If time is up, show message
+            if (timeLeft < 0) {
+                document.getElementById("countdown-container").innerHTML = "🌙 ইফতার সময়! 🌙";
+            }
+        }
+
+        // Update countdown every second
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+</html>
